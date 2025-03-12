@@ -2,6 +2,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import "./App.css";
+import "./NavAppBar";
 
 // Import pages
 import Home from "./pages/Home";
@@ -13,24 +14,27 @@ import Login from "./pages/Login";
 
 function App() {
   return (
-    <BrowserRouter>
-      <nav>
-        <Link to="/">Home</Link> |<Link to="/stats">Stats</Link> |
-        <Link to="/learn">Learn</Link> |<Link to="/profile">Profile</Link> |
-        <Link to="/scheduling">Scheduling</Link> |{" "}
-        <Link to="/login">Login</Link>
-      </nav>
+    <>
+      <BrowserRouter>
+        <nav>
+          <Link to="/">Home</Link> |<Link to="/stats">Stats</Link> |
+          <Link to="/learn">Learn</Link> |<Link to="/profile">Profile</Link> |
+          <Link to="/scheduling">Scheduling</Link> |{" "}
+          <Link to="/login">Login</Link>
+        </nav>
 
-      <div>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/stats" element={<Stats />} />
-          <Route path="/learn" element={<Learn />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/scheduling" element={<Scheduling />} />
-        </Routes>
-      </div>
-    </BrowserRouter>
+        <div>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/stats" element={<Stats />} />
+            <Route path="/learn" element={<Learn />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/scheduling" element={<Scheduling />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
+      <NavAppBar />
+    </>
   );
 }
 
