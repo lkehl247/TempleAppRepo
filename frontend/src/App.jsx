@@ -11,6 +11,7 @@ import Learn from "./pages/Learn";
 import Profile from "./pages/Profile";
 import Scheduling from "./pages/Scheduling";
 import Login from "./pages/Login";
+import Welcome from "./components/MainLayout"
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Link to="/learn">Learn</Link> |<Link to="/profile">Profile</Link> |
           <Link to="/scheduling">Scheduling</Link> |{" "}
           <Link to="/login">Login</Link>
+          <Link to="/welcome">Welcome</Link>
         </nav>
 
         <div>
@@ -30,10 +32,10 @@ function App() {
             <Route path="/learn" element={<Learn />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/scheduling" element={<Scheduling />} />
+            <Route path="/welcome" element={<Welcome />} />
           </Routes>
         </div>
       </BrowserRouter>
-      <NavAppBar />
     </>
   );
 }
