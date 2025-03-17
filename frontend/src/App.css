@@ -67,6 +67,7 @@ p {
   font-size: 24px;
   color: white;
   transition: 0.3s ease-in-out;
+  width: 20px;
 }
 
 .icon:hover {

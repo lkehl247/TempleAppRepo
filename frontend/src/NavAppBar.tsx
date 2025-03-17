@@ -1,31 +1,62 @@
 import React from "react";
 import "./App.css";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+// import icons
+import homeBtn from "./assets/home.png";
+import calendarBtn from "./assets/calendar.png";
+import statsBtn from "./assets/stats.png";
+import recommendBtn from "./assets/recommend.png";
+import profileBtn from "./assets/profile.png";
 
-const NavBar = () => {
+// Import pages
+import Home from "./pages/Home";
+import Stats from "./pages/Stats";
+import Learn from "./pages/Learn";
+import Profile from "./pages/Profile";
+import Scheduling from "./pages/Scheduling";
+import Login from "./pages/Login";
+
+const NavAppBar = () => {
   return (
-    <nav className="nav-bar">
+    <BrowserRouter>
+      <nav className="nav-bar">
+        <Link to="/" className="nav-item">
+          <img className="icon" src={homeBtn} alt="Home" />
+          <span>Home</span>
+        </Link>
+        <Link to="/scheduling" className="nav-item">
+          <img className="icon" src={calendarBtn} alt="Calendar" />
+          <span>Scheduling</span>
+        </Link>
+        <Link to="/stats" className="nav-item">
+          <img className="icon" src={statsBtn} alt="Stats" />
+          <span>Stats</span>
+        </Link>
+        <Link to="/learn" className="nav-item">
+          <img className="icon" src={recommendBtn} alt="Learn" />
+          <span>Learn</span>
+        </Link>
+        <Link to="/profile" className="nav-item">
+          <img className="icon" src={profileBtn} alt="Profile" />
+          <span>Profile</span>
+        </Link>
+        <Link to="/login" className="nav-item">
+          <span>Login</span>
+        </Link>
+      </nav>
+
       <div>
-        <img className="icon" src="/assets/home.png" />
-        <span>Home</span>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/stats" element={<Stats />} />
+          <Route path="/learn" element={<Learn />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/scheduling" element={<Scheduling />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
       </div>
-      <div className="nav-item">
-        <img className="icon" src="/assets/calendar.png" />
-        <span>Calendar</span>
-      </div>
-      <div className="nav-item">
-        <img className="icon" src="/assets/stats.png" />
-        <span>Stats</span>
-      </div>
-      <div className="nav-item">
-        <img className="icon" src="/assets/home/recommend.png" />
-        <span>Recommend</span>
-      </div>
-      <div className="nav-item">
-        <img className="icon" src="/assets/profile.png" />
-        <span>Profile</span>
-      </div>
-    </nav>
+    </BrowserRouter>
   );
 };
 
-export default NavBar;
+export default NavAppBar;
