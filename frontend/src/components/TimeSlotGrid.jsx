@@ -33,20 +33,22 @@ const timeSlots = {
 
 const TimeSlotGrid = () => {
   return (
-    <section className="flex flex-col">
-      <header className="grid grid-cols-3 py-1 text-lg text-center text-white bg-lime-900">
-        <div className="border-2 border-black">Feb 24</div>
-        <div className="border-2 border-black">Feb 25</div>
+    <section className="time-slot-grid">
+      <header className="time-slot-header">
+        <div>Feb 24</div>
+        <div>Feb 25</div>
         <div>Feb 26</div>
       </header>
-      <div className="grid grid-cols-3 border-2 border-black">
+
+      <div className="time-slot-content">
         {Object.entries(timeSlots).map(([date, slots]) => (
-          <div key={date} className="flex flex-col gap-2 p-1">
+          <div key={date} className="time-slot-column">
             {slots.map((slot) => (
               <TimeSlot
                 key={`${date}-${slot.time}`}
                 time={slot.time}
                 count={slot.count}
+                className={`time-slot-item ${slot.count >= 4 ? "busy" : ""}`}
               />
             ))}
           </div>
