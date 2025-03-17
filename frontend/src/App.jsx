@@ -6,10 +6,10 @@ import "./NavAppBar";
 
 // Import pages
 import Home from "./pages/Home";
-import Stats from "./pages/Stats";
+import Stats from "./components/TempleDashboard";
 import Learn from "./pages/Learn";
-import Profile from "./pages/Profile";
-import Scheduling from "./pages/Scheduling";
+import Profile from "./components/MembershipCard";
+import Scheduling from "./components/TempleScheduler";
 import Login from "./pages/Login";
 import Welcome from "./components/MainLayout"
 

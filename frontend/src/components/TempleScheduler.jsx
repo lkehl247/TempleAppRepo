@@ -1,10 +1,9 @@
 "use client";
 import React from "react";
-import TempleSelector from "./components/TempleSelector";
-import OrdinanceSelector from "./components/OrdinanceSelector";
-import DateSelector from "./components/DateSelector";
-import TimeSlotGrid from "./components/TimeSlotGrid";
-import BottomNavigation from "./components/BottomNavigation";
+import TempleSelector from "../components/TempleSelector";
+import OrdinanceSelector from "../components/OrdinanceSelector.jsx";
+import DateSelector from "../components/DateSelector";
+import TimeSlotGrid from "../components/TimeSlotGrid";
 
 const TempleScheduler = () => {
   return (
@@ -15,7 +14,6 @@ const TempleScheduler = () => {
         <DateSelector />
         <TimeSlotGrid />
       </div>
-      <BottomNavigation />
     </div>
   );
 };
