@@ -44,7 +44,7 @@ const NavAppBar = () => {
 
       <div>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Welcome />} />
           <Route path="/stats" element={<Stats />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/scheduling" element={<Scheduling />} />
