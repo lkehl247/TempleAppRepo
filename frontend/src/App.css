@@ -149,6 +149,8 @@ button:hover {
   border: 2px solid #000;
   border-radius: 12px;
   overflow: hidden;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .time-slot-header {
@@ -289,7 +291,7 @@ textarea:focus {
 
 .stat-box p {
   color: white;
-  font-size: 24px;
+  font-size: 60px;
   font-weight: bold;
 }
 
@@ -311,4 +313,61 @@ textarea:focus {
     flex-direction: row; /* Stacks boxes on small screens */
     align-items: center; /* Centers them */
   }
+}
+
+.appointment-box {
+  width: 300px; /* Set a fixed width */
+  height: 100px; /* Set a fixed height */
+  background-color: #82be93; /* Light green background */
+  color: black; /* Black text */
+  padding: 10px; /* Add space inside the box */
+  padding-top: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  text-align: center; /* Ensure text inside is centered */
+  border-radius: 12px;
+  margin: 0 auto;
+  margin-bottom: 5px;
+}
+
+.appointment-box h1 {
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: black;
+  font-size: 15px;
+}
+
+.appointment-box p {
+  font-weight: normal;
+  margin: 0;
+  font-size: 15px;
+  color: black;
+}
+
+.number-of-seats {
+  display: inline-block; /* Ensures the circle wraps around the text */
+  padding: 3px 5px; /* Adds padding inside the circle */
+  background-color: lightgray; /* Light gray background color */
+  color: black; /* Text color */
+  border-radius: 50%; /* Makes the shape a circle */
+  font-weight: bold; /* Optional: bold text */
+  font-size: 10px; /* Adjust font size as needed */
+  margin-left: 2px;
+  vertical-align: top;
+}
+
+.selected-item {
+  color: white;
+  background-color: #3f6212; /* lime-900 color */
+}
+
+.unselected-item {
+  color: black
+  background-color: #2f4f4f;
+}
+
+.left-aligned {
+  text-align: left;
 }

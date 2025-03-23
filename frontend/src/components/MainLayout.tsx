@@ -6,13 +6,11 @@ import { AppointmentList } from "./AppointmentList";
 
 export const MainLayout: React.FC = () => {
   return (
-    <div className="flex flex-col bg-white min-h-[screen]">
-      <main className="flex flex-col gap-10 px-7 mt-12">
-        <h1 className="text-4xl font-semibold text-center text-black">
-          Welcome, Emma!
-        </h1>
+    <div>
+      <main>
+        <h1>Welcome, Emma!</h1>
 
-        <section className="flex flex-col gap-10">
+        <section>
           <ActionButton
             text="Schedule Appointment"
             className="rounded-xl bg-slate-500"

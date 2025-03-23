@@ -16,18 +16,14 @@ const temples: Temple[] = [
 
 const TempleSelector: React.FC = () => {
   return (
-    <section className="flex flex-col gap-2">
-      <h2 className="text-xl text-black">Temples</h2>
-      <div className="flex overflow-x-auto gap-3 items-center py-1">
+    <section>
+      <h2>Temples</h2>
+      <div>
         {temples.map((temple) => (
           <button
             key={temple.name}
-            className={`h-10 text-base rounded-xl flex-[shrink] px-4 flex items-center justify-center whitespace-nowrap
-              ${
-                temple.selected
-                  ? "text-white bg-lime-900"
-                  : "text-black bg-neutral-400"
-              }`}
+            className={` 
+              ${temple.selected ? "selected-item" : "unselected-item"}`}
           >
             {temple.name}
           </button>

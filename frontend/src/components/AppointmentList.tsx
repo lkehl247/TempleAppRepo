@@ -33,11 +33,9 @@ export const AppointmentList: React.FC = () => {
   ];
 
   return (
-    <section className="p-4 rounded-xl border border-lime-700">
-      <h2 className="mb-5 text-2xl font-bold text-center text-black">
-        Upcoming Appointments
-      </h2>
-      <div className="flex flex-col gap-2.5">
+    <section>
+      <h2>Upcoming Appointments</h2>
+      <div>
         {appointments.map((appointment, index) => (
           <AppointmentCard
             key={index}
