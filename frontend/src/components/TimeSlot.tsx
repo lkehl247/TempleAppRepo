@@ -8,10 +8,12 @@ interface TimeSlotProps {
 
 const TimeSlot: React.FC<TimeSlotProps> = ({ time, count }) => {
   return (
-    <div className="flex justify-between items-center px-2.5 py-1.5 text-white bg-lime-900 rounded-xl">
-      <time className="text-base">{time}</time>
-      <div className="w-6 h-6 text-black bg-white rounded-full flex items-center justify-center">
-        {count}
+    <div className="flex items-center gap-2 p-2 bg-green-700 rounded-md text-white">
+      <div className="flex items-center gap-2">
+        <div className="px-2 py-1 bg-green-800 rounded-md">{time}</div>
+        <div className="w-6 h-6 flex items-center justify-center bg-black text-white rounded-full text-sm">
+          {count}
+        </div>
       </div>
     </div>
   );
