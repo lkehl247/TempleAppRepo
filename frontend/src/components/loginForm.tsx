@@ -57,9 +57,7 @@ const LoginForm: React.FC = () => {
           </button>
         </div>
 
-        <a href="#" className="text-base underline text-stone-900">
-          Forgot password?
-        </a>
+        <a href="#">Forgot password?</a>
       </fieldset>
     </form>
   );

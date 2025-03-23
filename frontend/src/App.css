@@ -6,6 +6,10 @@ body {
   padding: 0;
 }
 
+* {
+  text-align: center !important;
+}
+
 /* Card styling */
 .cards {
   background: white;
@@ -62,17 +66,36 @@ p {
   width: 100%;
 }
 
+.nav-item {
+  display: flex;
+  flex-direction: column; /* Stack icon and text */
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically if needed */
+  text-decoration: none; /* Remove default underline */
+  color: white; /* Keep text color consistent */
+}
+
+.nav-item:hover {
+  color: #4f8f13; /* Changes text to green on hover */
+}
+
+.nav-item img {
+  background-color: #2f4f4f; /* Same background as the button */
+  padding: 10px; /* Add padding for better appearance */
+  border-radius: 8px; /* Match button's rounded corners */
+  transition: background 0.3s;
+}
+
+.nav-item img:hover {
+  background-color: #1e3a3a; /* Darker shade on hover, like button */
+}
+
 /* Icons */
 .icon {
   font-size: 24px;
   color: white;
   transition: 0.3s ease-in-out;
   width: 20px;
-}
-
-.icon:hover {
-  color: #a8dadc; /* Light blue-green */
-  transform: scale(1.1);
 }
 
 /* Buttons */
@@ -163,4 +186,9 @@ button:hover {
 .time-slot-item.busy {
   background-color: #f87171; /* Red-400 */
   color: #fff;
+}
+
+a {
+  text-decoration: none;
+  color: white; /* Change to any color you want */
 }
