@@ -1,4 +1,4 @@
-/* General styles */
+/* General Reset and Styles */
 body {
   font-family: "Helvetica", sans-serif;
   background-color: #f4f4f4;
@@ -7,10 +7,10 @@ body {
 }
 
 * {
-  text-align: center !important;
+  text-align: center !important; /* Centers all elements on the page */
 }
 
-/* Card styling */
+/* Card Styling */
 .cards {
   background: white;
   border-radius: 12px;
@@ -19,7 +19,7 @@ body {
   margin: 10px;
 }
 
-/* Headings */
+/* Typography (Headings & Paragraphs) */
 h1 {
   font-family: "Helvetica", sans-serif;
   font-size: 32px;
@@ -44,7 +44,6 @@ h3 {
   margin-bottom: 6px;
 }
 
-/* Paragraph text */
 p {
   font-family: "Helvetica", sans-serif;
   font-size: 16px;
@@ -52,7 +51,17 @@ p {
   line-height: 1.5;
 }
 
-/* Navigation bar */
+/* Links (Anchor Tags) */
+a {
+  text-decoration: none; /* Removes default underline */
+  color: rgb(255, 255, 255); /* Default color for links */
+}
+
+a:hover {
+  color: #3f6212; /* Color change on hover */
+}
+
+/* Navigation Bar */
 .nav-bar {
   display: flex;
   justify-content: space-around;
@@ -76,18 +85,18 @@ p {
 }
 
 .nav-item:hover {
-  color: #4f8f13; /* Changes text to green on hover */
+  color: #4f8f13; /* Green text color on hover */
 }
 
 .nav-item img {
   background-color: #2f4f4f; /* Same background as the button */
-  padding: 10px; /* Add padding for better appearance */
-  border-radius: 8px; /* Match button's rounded corners */
+  padding: 10px;
+  border-radius: 8px;
   transition: background 0.3s;
 }
 
 .nav-item img:hover {
-  background-color: #1e3a3a; /* Darker shade on hover, like button */
+  background-color: #1e3a3a; /* Darker background on hover */
 }
 
 /* Icons */
@@ -111,10 +120,10 @@ button {
 }
 
 button:hover {
-  background-color: #3a5a40;
+  background-color: #3a5a40; /* Green background on hover */
 }
 
-/* Calendar styling */
+/* Calendar Styling */
 .calendar {
   width: 100%;
   border-radius: 8px;
@@ -123,14 +132,16 @@ button:hover {
   padding: 12px;
 }
 
-/* Profile photo */
+/* Profile Photo */
 .profile-photo {
   width: 60px;
   height: 60px;
-  border-radius: 50%;
+  border-radius: 50%; /* Circular profile photo */
   object-fit: cover;
   border: 3px solid #2f4f4f;
 }
+
+/* Time Slot Grid Styling */
 .time-slot-grid {
   display: flex;
   flex-direction: column;
@@ -142,7 +153,7 @@ button:hover {
 
 .time-slot-header {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
   background-color: #3f6212; /* Lime-900 */
   color: #fff;
   text-align: center;
@@ -157,12 +168,12 @@ button:hover {
 }
 
 .time-slot-header div:last-child {
-  border-right: none; /* Remove border for the last column */
+  border-right: none; /* Remove right border for the last column */
 }
 
 .time-slot-content {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
   border-top: 2px solid #000;
 }
 
@@ -188,7 +199,116 @@ button:hover {
   color: #fff;
 }
 
-a {
-  text-decoration: none;
-  color: white; /* Change to any color you want */
+/* Section-specific Styling */
+.login-section {
+  color: black;
+}
+
+.input-left-align {
+  text-align: left;
+}
+
+/* General form styling */
+form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+form h2 {
+  text-align: center;
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Form input and label styling */
+label {
+  font-size: 16px;
+  margin-bottom: 8px;
+  display: block;
+  color: #555;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  border-color: #2f4f4f; /* Dark green */
+  outline: none;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 600px) {
+  form {
+    padding: 15px;
+  }
+
+  form h2 {
+    font-size: 20px;
+  }
+
+  button {
+    padding: 10px 16px;
+    margin-bottom: 20px;
+  }
+}
+
+.stat-box {
+  background-color: #3a5a40;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  padding: 17px;
+  border: 2px solid white;
+  border-radius: 8px;
+  display: flex; /* Enables flexbox */
+  flex-direction: column; /* Stack content vertically */
+  align-items: center; /* Center text */
+  justify-content: center; /* Center vertically */
+  text-align: center;
+  width: 170px; /* Adjust as needed */
+  height: 250px; /* Makes it taller */
+}
+
+.stat-box p {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.stat-box h3 {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.stat-box-container {
+  display: flex;
+  flex-wrap: wrap; /* Allows boxes to move to the next line if needed */
+  gap: 10px; /* Adds spacing between boxes */
+  justify-content: center; /* Centers boxes */
+}
+
+@media (max-width: 600px) {
+  .stat-box-container {
+    flex-direction: row; /* Stacks boxes on small screens */
+    align-items: center; /* Centers them */
+  }
 }

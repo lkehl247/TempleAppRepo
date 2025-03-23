@@ -17,12 +17,12 @@ const CelestialScheduleLogin: React.FC = () => {
     <>
       <h1>Celestial Schedule</h1>
 
-      <LoginForm />
-
       <img
         src="https://cdn.builder.io/api/v1/image/assets/TEMP/8e6628c480a4ceb7d81306cf7bcfb1a88873461f"
         alt="Temple illustration"
       />
+
+      <LoginForm />
     </>
   );
 };

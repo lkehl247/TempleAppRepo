@@ -14,7 +14,7 @@ export const TempleDashboard: React.FC = () => {
             My Temple Dashboard
           </h1>
 
-          <div className="grid grid-cols-2 gap-7 max-sm:grid-cols-1">
+          <div className="stat-box-container">
             <StatCard value="5" label="Total Appointments" />
             <StatCard value="3" label="People Added to Appointments" />
             <TimeSeriesChart />
