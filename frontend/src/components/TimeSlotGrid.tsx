@@ -1,65 +1,74 @@
-// @ts-ignore
 import React from "react";
 import TimeSlot from "./TimeSlot";
+import Appointment from "../types/Appointment";
 
 interface TimeSlotData {
   time: string;
   count: number;
+  id: number;
 }
 
 interface TimeSlots {
   [date: string]: TimeSlotData[];
 }
 
-const timeSlots: TimeSlots = {
-  "Feb 24": [
-    { time: "9:00 AM", count: 2 },
-    { time: "10:00 AM", count: 4 },
-    { time: "12:00 PM", count: 1 },
-    { time: "1:30 PM", count: 3 },
-    { time: "8:00 PM", count: 1 },
-  ],
-  "Feb 25": [
-    { time: "7:00 AM", count: 2 },
-    { time: "10:30 AM", count: 5 },
-    { time: "4:00 PM", count: 6 },
-    { time: "5:00 PM", count: 3 },
-    { time: "5:30 PM", count: 1 },
-    { time: "7:00 PM", count: 2 },
-    { time: "8:00 PM", count: 1 },
-  ],
-  "Feb 26": [
-    { time: "7:00 AM", count: 3 },
-    { time: "8:00 AM", count: 4 },
-    { time: "9:00 AM", count: 4 },
-    { time: "10:00 AM", count: 3 },
-    { time: "11:00 AM", count: 5 },
-    { time: "12:00 PM", count: 2 },
-    { time: "1:00 PM", count: 1 },
-    { time: "2:00 PM", count: 1 },
-    { time: "3:00 PM", count: 2 },
-  ],
-};
+interface TimeSlotGridProps {
+  availableAppointments: Appointment[];
+}
 
-const TimeSlotGrid: React.FC = () => {
+const TimeSlotGrid: React.FC<TimeSlotGridProps> = ({
+  availableAppointments,
+}) => {
+  const timeSlots: TimeSlots = {};
+
+  availableAppointments.forEach((appointment) => {
+    const appointmentDateTime = new Date(
+      `${appointment.appointmentDate}T${appointment.appointmentTime}`
+    );
+    const date = appointmentDateTime.toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+    });
+    const time = appointmentDateTime.toLocaleTimeString("en-US", {
+      hour: "numeric",
+      minute: "numeric",
+      hour12: true,
+    });
+
+    if (!timeSlots[date]) {
+      timeSlots[date] = [];
+    }
+
+    const slot = timeSlots[date].find((slot) => slot.time === time);
+    if (slot) {
+      slot.count += 1;
+    } else {
+      timeSlots[date].push({ time, count: 1, id: appointment.appointmentId });
+    }
+  });
+
   return (
     <section className="time-slot-grid">
       <header className="time-slot-header">
-        <div>Feb 24</div>
-        <div>Feb 25</div>
-        <div>Feb 26</div>
+        {Object.keys(timeSlots).map((date) => (
+          <div key={date}>{date}</div>
+        ))}
       </header>
 
       <div className="time-slot-content">
         {Object.entries(timeSlots).map(([date, slots]) => (
           <div key={date} className="time-slot-column">
-            {slots.map((slot) => (
-              <TimeSlot
-                key={`${date}-${slot.time}`}
-                time={slot.time}
-                count={slot.count}
-              />
-            ))}
+            {slots
+              .filter((slot) => slot.count > 0)
+              .map((slot) => (
+                <TimeSlot
+                  key={`${date}-${slot.time}`}
+                  id={slot.id}
+                  time={slot.time}
+                  date={date}
+                  count={slot.count}
+                />
+              ))}
           </div>
         ))}
       </div>

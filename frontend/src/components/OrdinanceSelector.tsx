@@ -1,30 +1,54 @@
-// @ts-ignore
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 interface Ordinance {
-  name: string;
-  selected: boolean;
+  ordinanceId: string;
+  ordinanceName: string;
 }
 
-const ordinances: Ordinance[] = [
-  { name: "Baptism", selected: false },
-  { name: "Initiatory", selected: true },
-  { name: "Endowment", selected: false },
-  { name: "Sealing", selected: false },
+const dummyOrdinances: Ordinance[] = [
+  { ordinanceId: "1", ordinanceName: "Baptism" },
+  { ordinanceId: "2", ordinanceName: "Initiatory" },
+  { ordinanceId: "3", ordinanceName: "Endowment" },
+  { ordinanceId: "4", ordinanceName: "Sealing" },
 ];
 
-const OrdinanceSelector: React.FC = () => {
+interface OrdinanceSelectorProps {
+  selectedOrdinance: string;
+  setSelectedOrdinance: (ordinanceId: string) => void;
+}
+
+const OrdinanceSelector: React.FC<OrdinanceSelectorProps> = ({
+  selectedOrdinance,
+  setSelectedOrdinance,
+}) => {
+  const [ordinances, setOrdinances] = useState<Ordinance[]>(dummyOrdinances);
+
+  const handleSelect = (selectedOrdinanceId: string) => {
+    setSelectedOrdinance(selectedOrdinanceId);
+  };
+
+  useEffect(() => {
+    fetch("http://localhost:5000/getOrdinances")
+      .then((response) => response.json())
+      .then((data) => setOrdinances(data))
+      .catch((error) => console.error("Error fetching ordinances:", error));
+  }, []);
+
   return (
     <section>
       <h2>Ordinances</h2>
       <div>
         {ordinances.map((ordinance) => (
           <button
-            key={ordinance.name}
-            className={`
-              ${ordinance.selected ? "selected-item" : "unselected-item"}`}
+            key={ordinance.ordinanceId}
+            className={
+              ordinance.ordinanceId === selectedOrdinance
+                ? "selected-item"
+                : "unselected-item"
+            }
+            onClick={() => handleSelect(ordinance.ordinanceId)}
           >
-            {ordinance.name}
+            {ordinance.ordinanceName}
           </button>
         ))}
       </div>

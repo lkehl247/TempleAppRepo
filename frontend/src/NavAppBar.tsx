@@ -9,11 +9,10 @@ import profileBtn from "./assets/profile.png";
 import recommendBtn from "./assets/recommend.png";
 
 // Import pages
-import Home from "./pages/Home";
 import Stats from "./components/TempleDashboard";
 import Profile from "./components/MembershipCard";
 import Scheduling from "./components/TempleScheduler";
-import Login from "./pages/Login";
+import Login from "./components/Login";
 import Welcome from "./components/MainLayout";
 
 const NavAppBar = () => {
@@ -50,6 +49,12 @@ const NavAppBar = () => {
           <Route path="/scheduling" element={<Scheduling />} />
           <Route path="/login" element={<Login />} />
         </Routes>
+
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
       </div>
     </BrowserRouter>
   );

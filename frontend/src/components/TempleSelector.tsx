@@ -1,31 +1,51 @@
-// @ts-ignore
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 interface Temple {
-  name: string;
-  selected: boolean;
+  templeId: number;
+  templeName: string;
 }
 
-const temples: Temple[] = [
-  { name: "Orem", selected: true },
-  { name: "Provo", selected: false },
-  { name: "Provo City", selected: false },
-  { name: "Payson", selected: false },
-  { name: "Timpanogos", selected: false },
+interface TempleSelectorProps {
+  selectedTemple: number | null;
+  setSelectedTemple: (templeId: number | null) => void;
+}
+
+const dummyTemples: Temple[] = [
+  { templeId: 1, templeName: "Orem" },
+  { templeId: 2, templeName: "Provo" },
+  { templeId: 3, templeName: "Provo City" },
+  { templeId: 4, templeName: "Payson" },
+  { templeId: 5, templeName: "Timpanogos" },
 ];
 
-const TempleSelector: React.FC = () => {
+const TempleSelector: React.FC<TempleSelectorProps> = ({
+  selectedTemple,
+  setSelectedTemple,
+}) => {
+  const [temples, setTemples] = useState<Temple[]>(dummyTemples);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/getTemples")
+      .then((response) => response.json())
+      .then((data) => setTemples(data))
+      .catch((error) => console.error("Error fetching temples:", error));
+  }, []);
+
   return (
     <section>
       <h2>Temples</h2>
       <div>
         {temples.map((temple) => (
           <button
-            key={temple.name}
-            className={` 
-              ${temple.selected ? "selected-item" : "unselected-item"}`}
+            key={temple.templeId}
+            className={
+              temple.templeId === selectedTemple
+                ? "selected-item"
+                : "unselected-item"
+            }
+            onClick={() => setSelectedTemple(temple.templeId)}
           >
-            {temple.name}
+            {temple.templeName}
           </button>
         ))}
       </div>
