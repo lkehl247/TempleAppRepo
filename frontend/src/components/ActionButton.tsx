@@ -6,12 +6,10 @@ interface ActionButtonProps {
   className?: string;
 }
 
-export const ActionButton: React.FC<ActionButtonProps> = ({ text, className }) => {
+export const ActionButton: React.FC<ActionButtonProps> = ({ text }) => {
   return (
-    <button className={`w-full h-[94px] ${className || ''}`}>
-      <span className="text-2xl md:text-4xl font-bold text-center text-white">
-        {text}
-      </span>
+    <button style={{ borderRadius: "8px" }}>
+      <span>{text}</span>
     </button>
   );
 };
