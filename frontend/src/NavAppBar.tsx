@@ -6,7 +6,7 @@ import homeBtn from "./assets/home.png";
 import calendarBtn from "./assets/calendar.png";
 import statsBtn from "./assets/stats.png";
 import profileBtn from "./assets/profile.png";
-// import loginBtn from "./assets/login.png";
+import recommendBtn from "./assets/recommend.png";
 
 // Import pages
 import Home from "./pages/Home";
@@ -33,11 +33,11 @@ const NavAppBar = () => {
           <span>Stats</span>
         </Link>
         <Link to="/profile" className="nav-item">
-          <img className="icon" src={profileBtn} alt="Profile" />
+          <img className="icon" src={recommendBtn} alt="Profile" />
           <span>Profile</span>
         </Link>
         <Link to="/login" className="nav-item">
-          {/* <img className="icon" src={loginBtn} alt="Login" /> */}
+          <img className="icon" src={profileBtn} alt="Login" />
           <span>Login</span>
         </Link>
       </nav>

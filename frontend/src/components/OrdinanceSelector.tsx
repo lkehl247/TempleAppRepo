@@ -15,18 +15,14 @@ const ordinances: Ordinance[] = [
 
 const OrdinanceSelector: React.FC = () => {
   return (
-    <section className="flex flex-col gap-2">
-      <h2 className="text-xl text-black">Ordinances</h2>
-      <div className="flex overflow-x-auto gap-3.5 items-center py-1">
+    <section>
+      <h2>Ordinances</h2>
+      <div>
         {ordinances.map((ordinance) => (
           <button
             key={ordinance.name}
-            className={`h-10 text-base rounded-xl flex-[shrink] px-4 flex items-center justify-center whitespace-nowrap
-              ${
-                ordinance.selected
-                  ? "text-white bg-lime-900"
-                  : "text-black bg-neutral-400"
-              }`}
+            className={`
+              ${ordinance.selected ? "selected-item" : "unselected-item"}`}
           >
             {ordinance.name}
           </button>

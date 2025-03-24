@@ -13,7 +13,7 @@ const OrdinanceBar: React.FC<OrdinanceBarProps> = ({
   label,
   color,
 }) => (
-  <div className="flex flex-col items-center">
+  <div>
     <div className={`w-5 ${height} ${color}`} />
     <div className="mt-1.5 text-xs">{label}</div>
   </div>
@@ -73,8 +73,6 @@ export const OrdinanceChart: React.FC = () => (
           </tr>
         </tbody>
       </table>
-
-      
     </div>
   </section>
 );
