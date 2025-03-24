@@ -21,6 +21,7 @@ const TempleSelector: React.FC = () => {
       <div>
         {temples.map((temple) => (
           <button
+            style={{ borderRadius: "8px" }}
             key={temple.name}
             className={` 
               ${temple.selected ? "selected-item" : "unselected-item"}`}
