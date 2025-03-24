@@ -1,6 +1,5 @@
 // @ts-ignore
 import React from "react";
-import "bootstrap/dist/css/bootstrap.css";
 
 interface OrdinanceBarProps {
   height: string;
@@ -27,8 +26,8 @@ export const OrdinanceChart: React.FC = () => (
     <div className="relative h-[131px]">
       <table className="table">
         <thead>
-          <td>Ordinance</td>
-          <td>Count</td>
+          <th>Ordinance</th>
+          <th>Count</th>
         </thead>
         <tbody>
           <tr>
