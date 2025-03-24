@@ -2,11 +2,11 @@ import React from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
-const homeBtn = "./assets/home.png";
-const calendarBtn = "./assets/calendar.png";
-const statsBtn = "./assets/stats.png";
-const profileBtn = "./assets/profile.png";
-const recommendBtn = "./assets/recommend.png";
+import homeBtn from "./assets/home.png";
+import calendarBtn from "./assets/calendar.png";
+import statsBtn from "./assets/stats.png";
+import profileBtn from "./assets/profile.png";
+import recommendBtn from "./assets/recommend.png";
 
 // Import pages
 import Home from "./pages/Home";
