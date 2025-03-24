@@ -10,7 +10,7 @@ public class FamilyMember
     
     [ForeignKey("MembershipRecordNumber")]
     public int MembershipRecordNumber { get; set; }
-    //public Members Members { get; set; }
+    public Member Member { get; set; }
     
     [ForeignKey("MemberRecordNumber")]
     public int RelatedMembershipRecordNumber { get; set; }
