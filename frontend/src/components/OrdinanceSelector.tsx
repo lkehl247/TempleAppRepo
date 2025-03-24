@@ -20,7 +20,7 @@ const OrdinanceSelector: React.FC = () => {
       <div>
         {ordinances.map((ordinance) => (
           <button
-            style={{ borderRadius: "8px" }}
+            style={{ borderRadius: "8px", margin: "2px" }}
             key={ordinance.name}
             className={`
               ${ordinance.selected ? "selected-item" : "unselected-item"}`}

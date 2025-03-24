@@ -5,8 +5,8 @@ import { StrictMode } from "react";
 // @ts-ignore
 import { createRoot } from "react-dom/client";
 
-import "./App.css";
 import App from "./App";
+import "./App.css";
 
 const rootElement = document.getElementById("root");
 

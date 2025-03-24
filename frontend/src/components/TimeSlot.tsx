@@ -8,7 +8,7 @@ interface TimeSlotProps {
 
 const TimeSlot: React.FC<TimeSlotProps> = ({ time, count }) => {
   return (
-    <div>
+    <div className="appointment-time">
       <time>{time}</time>
       <div className="number-of-seats">{count}</div>
     </div>

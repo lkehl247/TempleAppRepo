@@ -7,12 +7,10 @@ import { OrdinanceChart } from "./OrdinanceChart";
 
 export const TempleDashboard: React.FC = () => {
   return (
-    <main className="flex flex-col bg-white min-h-[screen]">
-      <div className="flex-1">
-        <section className="px-7 mt-6">
-          <h1 className="mb-9 text-3xl font-bold text-black">
-            My Temple Stats
-          </h1>
+    <main>
+      <div>
+        <section>
+          <h1>My Temple Stats</h1>
           <div className="stat-box-container">
             <StatCard value="5" label="Total Appointments" />
             <StatCard value="3" label="People Added to Appointments" />

@@ -8,7 +8,7 @@ interface ActionButtonProps {
 
 export const ActionButton: React.FC<ActionButtonProps> = ({ text }) => {
   return (
-    <button style={{ borderRadius: "8px" }}>
+    <button style={{ borderRadius: "8px", margin: "2px" }}>
       <span>{text}</span>
     </button>
   );

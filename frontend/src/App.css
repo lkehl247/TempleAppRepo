@@ -354,7 +354,7 @@ textarea:focus {
   border-radius: 50%; /* Makes the shape a circle */
   font-weight: bold; /* Optional: bold text */
   font-size: 10px; /* Adjust font size as needed */
-  margin-left: 2px;
+  margin-left: 5px;
   vertical-align: top;
 }
 
@@ -370,4 +370,11 @@ textarea:focus {
 
 .left-aligned {
   text-align: left;
+}
+
+.appointment-time{
+  color: white;
+  background-color: #3f6212;
+  border-radius: 8px;
+  padding: 4px;
 }
