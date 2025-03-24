@@ -7,18 +7,17 @@ interface AppointmentCardProps {
   arrivalTime: string;
 }
 
-export const AppointmentCard: React.FC<AppointmentCardProps> = ({ 
-  title, 
-  date, 
-  arrivalTime 
+export const AppointmentCard: React.FC<AppointmentCardProps> = ({
+  title,
+  date,
+  arrivalTime,
 }) => {
   return (
-    <article className="p-4 rounded-xl bg-neutral-400">
-      <div className="text-base text-center text-black">
-        <span>{title}</span>{" "}
-        <span className="font-bold text-black">
-          {date} at {arrivalTime}
-        </span>
+    <article className="appointment-box">
+      <div>
+        <h1>{title}</h1>
+        <p>{date}</p>
+        <p>{arrivalTime}</p>
       </div>
     </article>
   );

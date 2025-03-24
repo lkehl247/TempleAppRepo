@@ -8,8 +8,8 @@ import TimeSlotGrid from "../components/TimeSlotGrid";
 
 const TempleScheduler: React.FC = () => {
   return (
-    <div className="flex flex-col bg-white min-h-[screen]">
-      <div className="flex flex-col gap-6 p-4">
+    <div>
+      <div>
         <TempleSelector />
         <OrdinanceSelector />
         <DateSelector />
