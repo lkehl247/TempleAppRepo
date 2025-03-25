@@ -18,8 +18,8 @@ public class Appointment
     public Ordinance Ordinance { get; set; }
     
     [ForeignKey("UserAccount")]
-    public string UserName { get; set; }
-    public UserAccount UserAccount { get; set; }
+    public string? UserName { get; set; }
+    public UserAccount? UserAccount { get; set; }
     
     public DateTime AppointmentDate { get; set; }
     public DateTime AppointmentTime { get; set; }
