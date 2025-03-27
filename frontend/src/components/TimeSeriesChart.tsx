@@ -7,9 +7,9 @@ interface MonthData {
 }
 
 const data: MonthData[] = [
-  { month: "Dec", count: 2, trend: "neutral" },
-  { month: "Jan", count: 4, trend: "up" },
-  { month: "Feb", count: 3, trend: "down" },
+  { month: "Jan", count: 2, trend: "neutral" },
+  { month: "Feb", count: 4, trend: "up" },
+  { month: "Mar", count: 3, trend: "down" },
 ];
 
 const TrendIcon: React.FC<{ trend: "up" | "down" | "neutral" }> = ({
@@ -38,7 +38,7 @@ export const TimeSeriesTable: React.FC = () => (
       </thead>
       <tbody>
         {data.map(({ month, count, trend }) => (
-          <tr key={month} className= "">
+          <tr key={month} className="">
             <td className="p-2 ">{month}</td>
             <td className="p-2 ">{count}</td>
             <td className="p-2 ">

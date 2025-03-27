@@ -18,8 +18,8 @@ export const TempleDashboard: React.FC = () => {
             <StatCard value="3" label="People Added to Appointments" />
             <TimeSeriesTable />
             <StatCard value="2" label="Unique Temples" />
+            <OrdinanceChart />
           </div>
-          <OrdinanceChart />
         </section>
       </div>
     </main>

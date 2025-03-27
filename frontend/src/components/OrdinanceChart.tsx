@@ -26,8 +26,10 @@ export const OrdinanceChart: React.FC = () => (
     <div className="relative h-[131px]">
       <table className="table">
         <thead>
-          <th>Ordinance</th>
-          <th>Count</th>
+          <tr>
+            <th>Ordinance</th>
+            <th>Count</th>
+          </tr>
         </thead>
         <tbody>
           <tr>

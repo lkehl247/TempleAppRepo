@@ -309,7 +309,7 @@ textarea:focus {
 
 @media (max-width: 600px) {
   .stat-box-container {
-    flex-direction: row; /* Stacks boxes on small screens */
+    flex-direction: column; /* Stacks boxes on small screens */
     align-items: center; /* Centers them */
   }
 }
@@ -363,7 +363,7 @@ textarea:focus {
 }
 
 .unselected-item {
-  color: black
+  color: black;
   background-color: #2f4f4f;
 }
 
