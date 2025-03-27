@@ -1,6 +1,7 @@
 "use client";
 // @ts-ignore
 import React from "react";
+import barcode from "../assets/barcode.png";
 
 export const ProfileInfo: React.FC = () => {
   return (
@@ -8,14 +9,20 @@ export const ProfileInfo: React.FC = () => {
       <div className="w-full rounded-xl bg-neutral-200 h-[140px]" />
       <div className="flex flex-col gap-3">
         <h1 className="text-4xl font-bold leading-6 text-black">Emma Smith</h1>
-
+        <div>
+          <img
+            src={barcode}
+            alt="Temple Recommend"
+            style={{ width: "400px" }}
+          />
+        </div>
         <div className="flex flex-col gap-5">
           <h2 className="text-2xl leading-6 text-black">Expiration Date</h2>
           <time className="text-4xl font-bold leading-6 text-black">
             05/2026
           </time>
         </div>
-
+        <br />
         <div className="mt-2 h-[37px] w-[165px]">
           <button className="text-sm text-white rounded-xl bg-slate-500 size-full">
             Set Renewal Reminder
