@@ -383,3 +383,17 @@ textarea:focus {
 .left-aligned {
   text-align: left;
 }
+
+.time-slot {
+  background-color: #3f6212;
+  color: white;
+  border-radius: 50px; /* Higher value for more oval shape */
+  cursor: pointer;
+  padding: 4px 8px; /* Increase padding for more height and width */
+  display: inline-block;
+  margin: 2px;
+}
+
+.time-slot:hover {
+  background-color: #2f4f4f;
+}

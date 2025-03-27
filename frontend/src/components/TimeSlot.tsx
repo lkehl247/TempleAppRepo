@@ -1,5 +1,6 @@
 // @ts-ignore
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 interface TimeSlotProps {
   time: string;
@@ -9,15 +10,24 @@ interface TimeSlotProps {
 }
 
 const TimeSlot: React.FC<TimeSlotProps> = ({ time, date, count, id }) => {
+  const navigate = useNavigate();
+
   function handleTimeSlotClick(id: number, time: string, date: string): void {
-    console.log(id, date, time);
+    // Using navigate to pass parameters to the next page
+    navigate("/confirmation", {
+      state: { id, time, date }, // Passing the data via state
+    });
   }
 
   return (
-    <div onClick={() => handleTimeSlotClick(id, date, time)}>
-      <time>{time}</time>
-      <div className="number-of-seats">{count}</div>
-    </div>
+    <>
+      <button
+        className="time-slot"
+        onClick={() => handleTimeSlotClick(id, time, date)}
+      >
+        {time} <span className="number-of-seats">{count}</span>
+      </button>
+    </>
   );
 };
 
