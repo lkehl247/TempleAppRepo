@@ -1,10 +1,12 @@
 "use client";
 
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm: React.FC = () => {
   const [email, setEmail] = useState("rgosling@gmail.com");
   const [password, setPassword] = useState("*************");
+  const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -36,7 +38,9 @@ const LoginForm: React.FC = () => {
         </div>
 
         <div>
-          <button type="submit">Sign In</button>
+          <button onClick={() => navigate("/")} type="submit">
+            Sign In
+          </button>
         </div>
 
         <a className="login-section" href="#">

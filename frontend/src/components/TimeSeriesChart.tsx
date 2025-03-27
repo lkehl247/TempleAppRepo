@@ -17,31 +17,40 @@ const TrendIcon: React.FC<{ trend: "up" | "down" | "neutral" }> = ({
 }) => {
   switch (trend) {
     case "up":
-      return <span className="text-green-600">▲</span>;
+      return <span style={{ color: "#006400" }}>▲</span>;
     case "down":
-      return <span className="text-red-600">▼</span>;
+      return <span style={{ color: "#8B0000" }}>▼</span>;
     case "neutral":
-      return <span className="text-yellow-600">▬</span>;
+      return <span style={{ color: "#E4A010" }}>▬</span>;
   }
 };
 
 export const TimeSeriesTable: React.FC = () => (
-  <article className="p-5 rounded-xl border">
-    <h3 className="mb-2 text-base font-bold text-center">Times Per Month</h3>
-    <table className="table">
+  <article
+    className="stat-outline"
+    style={{
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      textAlign: "center",
+    }}
+  >
+    <h3>Times Per Month</h3>
+    <table style={{ alignContent: "center" }}>
       <thead>
-        <tr className="bg-gray-100">
-          <th className="p-2 ">Month</th>
-          <th className="p-2 ">Count</th>
-          <th className="p-2 ">Trend</th>
+        <tr>
+          <th style={{ alignItems: "center" }}>Month</th>
+          <th style={{ alignContent: "center" }}>Count</th>
+          <th style={{ alignContent: "center" }}>Trend</th>
         </tr>
       </thead>
       <tbody>
         {data.map(({ month, count, trend }) => (
           <tr key={month} className="">
-            <td className="p-2 ">{month}</td>
-            <td className="p-2 ">{count}</td>
-            <td className="p-2 ">
+            <td>{month}</td>
+            <td>{count}</td>
+            <td>
               <TrendIcon trend={trend} />
             </td>
           </tr>

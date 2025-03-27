@@ -14,17 +14,24 @@ const OrdinanceBar: React.FC<OrdinanceBarProps> = ({
 }) => (
   <div>
     <div className={`w-5 ${height} ${color}`} />
-    <div className="mt-1.5 text-xs">{label}</div>
+    <div>{label}</div>
   </div>
 );
 
 export const OrdinanceChart: React.FC = () => (
-  <section className="p-5 mt-7 rounded-xl border ">
-    <h3 className="mb-5 text-base font-bold text-center">
-      Appointments by Ordinance
-    </h3>
-    <div className="relative h-[131px]">
-      <table className="table">
+  <section
+    className="stat-outline"
+    style={{
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      textAlign: "center",
+    }}
+  >
+    <h3>Appointments by Ordinance</h3>
+    <div>
+      <table>
         <thead>
           <tr>
             <th>Ordinance</th>
@@ -37,7 +44,7 @@ export const OrdinanceChart: React.FC = () => (
               <OrdinanceBar height="h-8" label="Baptism" color="bg-slate-500" />
             </td>
             <td>
-              <div className="absolute left-0 text-xs top-[38px]">4</div>
+              <div>4</div>
             </td>
           </tr>
           <tr>
@@ -49,7 +56,7 @@ export const OrdinanceChart: React.FC = () => (
               />
             </td>
             <td>
-              <div className="absolute left-px top-1.5 text-xs">6</div>
+              <div>6</div>
             </td>
           </tr>
           <tr>
@@ -61,7 +68,7 @@ export const OrdinanceChart: React.FC = () => (
               />
             </td>
             <td>
-              <div className="absolute left-px text-xs top-[72px]">2</div>
+              <div>2</div>
             </td>
           </tr>
           <tr>
@@ -69,7 +76,7 @@ export const OrdinanceChart: React.FC = () => (
               <OrdinanceBar height="h-8" label="Sealing" color="bg-lime-900" />
             </td>
             <td>
-              <div className="absolute left-px text-xs top-[72px]">2</div>
+              <div>2</div>
             </td>
           </tr>
         </tbody>

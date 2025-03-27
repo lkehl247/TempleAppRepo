@@ -1,7 +1,7 @@
 /* General Reset and Styles */
 body {
   font-family: "Helvetica", sans-serif;
-  background-color: #f4f4f4;
+  background-color: #f9f8f8;
   margin: 10px;
   padding: 0;
 }
@@ -276,35 +276,48 @@ textarea:focus {
   color: white;
   font-weight: bold;
   font-size: 24px;
-  padding: 17px;
+  padding: 10px;
   border: 2px solid white;
   border-radius: 8px;
-  display: flex; /* Enables flexbox */
-  flex-direction: column; /* Stack content vertically */
-  align-items: center; /* Center text */
-  justify-content: center; /* Center vertically */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  width: 170px; /* Adjust as needed */
-  height: 250px; /* Makes it taller */
+  width: 260px; /* Slightly less than 50% to add a small gap */
+  height: 160px;
 }
 
 .stat-box p {
   color: white;
-  font-size: 60px;
+  font-size: 50px;
   font-weight: bold;
+  margin-bottom: 5px; /* Reduce space between number and label */
+  line-height: 1; /* Tighter line spacing */
 }
 
 .stat-box h3 {
   color: white;
   font-size: 18px;
   font-weight: bold;
+  margin-top: 0; /* Remove extra space above the label */
 }
 
 .stat-box-container {
   display: flex;
-  flex-wrap: wrap; /* Allows boxes to move to the next line if needed */
-  gap: 10px; /* Adds spacing between boxes */
-  justify-content: center; /* Centers boxes */
+  flex-wrap: wrap; /* Allows items to wrap to the next line */
+  gap: 10px; /* Adds spacing between items */
+  justify-content: center; /* Centers items in the container */
+}
+
+.stat-outline {
+  background-color: white; /* White fill */
+  color: black; /* Black text */
+  border: 2px solid #2f4f4f; /* Black border (outline) */
+  padding: 10px;
+  border-radius: 8px; /* Optional: rounded corners */
+  text-align: center; /* Optional: centers text */
+  width: 260px;
 }
 
 @media (max-width: 600px) {
@@ -363,7 +376,7 @@ textarea:focus {
 }
 
 .unselected-item {
-  color: black;
+  color: white;
   background-color: #2f4f4f;
 }
 
