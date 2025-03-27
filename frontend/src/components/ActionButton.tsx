@@ -1,15 +1,13 @@
-// @ts-ignore
 import React from "react";
 
 interface ActionButtonProps {
   text: string;
-  className?: string;
+  onClick?: () => void;
 }
 
-export const ActionButton: React.FC<ActionButtonProps> = ({ text }) => {
-  return (
-    <button style={{ borderRadius: "8px" }}>
-      <span>{text}</span>
-    </button>
-  );
+export const ActionButton: React.FC<ActionButtonProps> = ({
+  text,
+  onClick,
+}) => {
+  return <button onClick={onClick}>{text}</button>;
 };
