@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices;
 using backend.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,20 +16,59 @@ public class AppointmentController : ControllerBase
         _context = context;
     }
 
-    [HttpGet("AllAppointments")]
-    public IActionResult GetAppointments(int pageSize = 10, int pageNum = 1)
+    [HttpGet("ScheduleAppointments")]
+    public IActionResult GetAppointments(
+        [FromQuery] int? TempleId,
+        [FromQuery] int? OrdinanceId,
+        [FromQuery] DateTime? AppointmentDate,
+        [FromQuery] DateTime? AppointmentTime
+        
+        )
     {
-        var appointments = _context.Appointments
-            .Skip((pageNum - 1) * pageSize)
-            .Take(pageSize)
+        var query = _context.Appointments.AsQueryable();
+        
+        if (TempleId.HasValue)
+            query = query.Where(x => x.TempleId == TempleId);
+        if (OrdinanceId.HasValue)
+            query = query.Where(x => x.OrdinanceId == OrdinanceId);
+        if (AppointmentDate.HasValue)
+            query = query.Where(x => x.AppointmentDate >= AppointmentDate);
+        if (AppointmentTime.HasValue)
+            query = query.Where(x => x.AppointmentTime >= AppointmentTime);
+
+        
+        var appointments = query.ToList();
+        return Ok(appointments);
+    }
+    
+    [HttpGet("GetTemples")]
+    public IActionResult GetTemples()
+    {
+        // Fetch only TempleId and TempleName from the database
+        var temples = _context.Temples
+            .Select(t => new 
+            {
+                t.TempleId,
+                t.TempleName
+            })
             .ToList();
 
-        var totalNumAppointments = _context.Appointments.Count();
+        return Ok(temples);
+    }
+    
+    [HttpGet("GetOrdinances")]
+    public IActionResult GetOrdinances()
+    {
+        // Fetch only OrdinanceId and OrdinanceName from the database
+        var ordinances = _context.Ordinances
+            .Select(o => new 
+            {
+                o.OrdinanceId,
+                o.OrdinanceName
+            })
+            .ToList();
 
-        return Ok(new
-        {
-            Appointments = appointments,
-            TotalNumAppointments = totalNumAppointments
-        });
+        return Ok(ordinances);
     }
 }
+
