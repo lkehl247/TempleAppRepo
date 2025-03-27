@@ -387,11 +387,14 @@ textarea:focus {
 .time-slot {
   background-color: #3f6212;
   color: white;
-  border-radius: 50px; /* Higher value for more oval shape */
+  border-radius: 20px; /* Higher value for more oval shape */
   cursor: pointer;
   padding: 4px 8px; /* Increase padding for more height and width */
   display: inline-block;
   margin: 2px;
+  padding-left: 1px;
+  padding-right: 1px;
+  font-size: 14px;
 }
 
 .time-slot:hover {
