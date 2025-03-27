@@ -12,17 +12,13 @@ const ConfirmationPage: React.FC = () => {
   };
 
   // Retrieve the passed appointment data
-  const { appointment }: { appointment: Appointment } = location.state || {};
+  const appointment: Appointment | null = location.state;
 
   const handleConfirm = () => {
     // Implement the logic to confirm the appointment
     console.log("Confirmed appointment:", appointment);
-    // Redirect to another page (e.g., appointment success page or scheduler)
-    navigate("/scheduler");
-  };
-
-  const handleGoBack = () => {
-    navigate("/scheduler"); // Go back to the scheduler page
+    // FIXME. we need to create a backend route to handle assigning an appointment to a user.
+    navigate("/");
   };
 
   return (
@@ -34,7 +30,7 @@ const ConfirmationPage: React.FC = () => {
           <p>Time: {time}</p>
           <p>Date: {date}</p>
           <button onClick={() => window.history.back()}>Go Back</button>
-          <button>Confirm Appointment</button>
+          <button onClick={handleConfirm}>Confirm Appointment</button>
         </div>
       ) : (
         <p>No appointment selected</p>
