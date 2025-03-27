@@ -35,7 +35,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseCors(x => x.WithOrigins("AllowFrontend"));
+app.UseCors("AllowFrontend");
 
 app.UseHttpsRedirection();
 
