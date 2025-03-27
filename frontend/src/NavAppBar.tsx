@@ -14,6 +14,7 @@ import Profile from "./components/MembershipCard";
 import Scheduling from "./components/TempleScheduler";
 import Login from "./components/Login";
 import Welcome from "./components/MainLayout";
+import Confirmation from "./components/ConfirmAppointment";
 
 const NavAppBar = () => {
   return (
@@ -48,6 +49,7 @@ const NavAppBar = () => {
           <Route path="/profile" element={<Profile />} />
           <Route path="/scheduling" element={<Scheduling />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/confirmation" element={<Confirmation />} />
         </Routes>
 
         <br></br>
