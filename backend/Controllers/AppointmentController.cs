@@ -17,31 +17,50 @@ public class AppointmentController : ControllerBase
     }
 
     [HttpGet("AllAppointments")]
-    public IActionResult GetAppointments()
+    public IActionResult GetAppointments([FromQuery] int? templeId, [FromQuery] int? ordinanceId, [FromQuery] DateTime? startDate, [FromQuery] DateTime? endDate, [FromQuery] TimeSpan? startTime, [FromQuery] TimeSpan? endTime)
     {
         // Use eager loading to get related Temple and Ordinance data
-        var appointments = _context.Appointments
-            .Include(a => a.Temple) // Eagerly load related Temple data
-            .Include(a => a.Ordinance) // Eagerly load related Ordinance data
-            .Select(a => new
-            {
-                a.AppointmentId,
-                TempleName = a.Temple.TempleName, // Replace templeId with templeName
-                OrdinanceName = a.Ordinance.OrdinanceName, // Replace ordinanceId with ordinanceName
-                a.UserName,
-                a.UserAccount,
-                AppointmentTime = a.AppointmentTime.ToString("yyyy-MM-dd HH:mm:ss"),
-                a.Confirmed,
-                a.Cancelled,
-                a.Completed,
-                a.Notes
-            })
-            .ToList();
+        var query = _context.Appointments.AsQueryable();
 
-        return Ok(new
+        // Apply filters based on query parameters
+        if (templeId.HasValue)
         {
-            Appointments = appointments,
-        });
+            query = query.Where(a => a.TempleId == templeId.Value);
+        }
+
+        if (ordinanceId.HasValue)
+        {
+            query = query.Where(a => a.OrdinanceId == ordinanceId.Value);
+        }
+
+        // if (startDate.HasValue)
+        // {
+        //     query = query.Where(a => a.AppointmentTime.Date >= startDate.Value.Date);
+        // }
+
+        // if (endDate.HasValue)
+        // {
+        //     query = query.Where(a => a.AppointmentTime.Date <= endDate.Value.Date);
+        // }
+
+        // if (startTime != null)
+        // {
+        //     query = query.Where(a => a.AppointmentTime.TimeOfDay >= startTime);
+        // }
+
+        // if (endTime != null)
+        // {
+        //     query = query.Where(a => a.AppointmentTime.TimeOfDay <= endTime);
+        // }
+        return Ok(query.ToList());
+    }
+
+    [HttpGet("GetUserAppointments")]
+    public IActionResult GetUserAppointments([FromQuery] string userName)
+    {
+        // get appointments for a specific user
+        var query = _context.Appointments.Where(a => a.UserName == userName);
+        return Ok(query);
     }
 
     [HttpGet("UserName")]
@@ -88,7 +107,18 @@ public class AppointmentController : ControllerBase
             AvailableAppointments = availableAppointments,
         });
     }
-
-
+    [HttpGet("GetTemples")]
+    public IActionResult GetTemples()
+    {
+        var temples = _context.Temples.ToList();
+        return Ok(temples);
     }
+
+    [HttpGet("GetOrdinances")]
+    public IActionResult GetOrdinances()
+    {
+        var ordinances = _context.Ordinances.ToList();
+        return Ok(ordinances);
+    }
+}
     

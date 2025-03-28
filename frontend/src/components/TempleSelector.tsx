@@ -1,31 +1,31 @@
 import React, { useState, useEffect } from "react";
 
 interface Temple {
-  templeId: number;
+  templeId: string;
   templeName: string;
 }
 
 interface TempleSelectorProps {
-  selectedTemple: number | null;
-  setSelectedTemple: (templeId: number | null) => void;
+  selectedTemple: string;
+  setSelectedTemple: (templeId: string) => void;
 }
-
-const dummyTemples: Temple[] = [
-  { templeId: 1, templeName: "Orem" },
-  { templeId: 2, templeName: "Provo" },
-  { templeId: 3, templeName: "Provo City" },
-  { templeId: 4, templeName: "Payson" },
-  { templeId: 5, templeName: "Timpanogos" },
-];
 
 const TempleSelector: React.FC<TempleSelectorProps> = ({
   selectedTemple,
   setSelectedTemple,
 }) => {
-  const [temples, setTemples] = useState<Temple[]>(dummyTemples);
+  const [temples, setTemples] = useState<Temple[]>([]);
+
+  const handleSelect = (selectedTempleId: string) => {
+    if (selectedTempleId === selectedTemple) {
+      setSelectedTemple(""); // Deselect if the same temple is clicked again
+    } else {
+      setSelectedTemple(selectedTempleId);
+    }
+  };
 
   useEffect(() => {
-    fetch("http://localhost:5000/getTemples")
+    fetch("http://localhost:5051/api/Appointment/GetTemples")
       .then((response) => response.json())
       .then((data) => setTemples(data))
       .catch((error) => console.error("Error fetching temples:", error));
@@ -38,12 +38,13 @@ const TempleSelector: React.FC<TempleSelectorProps> = ({
         {temples.map((temple) => (
           <button
             key={temple.templeId}
+            id={temple.templeId}
             className={
               temple.templeId === selectedTemple
                 ? "selected-item"
                 : "unselected-item"
             }
-            onClick={() => setSelectedTemple(temple.templeId)}
+            onClick={() => handleSelect(temple.templeId)}
           >
             {temple.templeName}
           </button>

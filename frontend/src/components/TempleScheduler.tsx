@@ -1,10 +1,10 @@
-"use client";
 import React, { useState, useEffect } from "react";
 import TempleSelector from "../components/TempleSelector";
 import OrdinanceSelector from "../components/OrdinanceSelector";
 import DateSelector from "../components/DateSelector";
+import TimeSelector from "../components/TimeSelector";
 import TimeSlotGrid from "../components/TimeSlotGrid";
-import Appointment from "../types/AvailableAppointments";
+import Appointment from "../types/Appointment";
 import { useNavigate } from "react-router-dom";
 
 const TempleScheduler: React.FC = () => {
@@ -16,6 +16,10 @@ const TempleScheduler: React.FC = () => {
     null
   );
   const [selectedEndDate, setSelectedEndDate] = useState<string | null>(null);
+  const [selectedStartTime, setSelectedStartTime] = useState<string | null>(
+    null
+  );
+  const [selectedEndTime, setSelectedEndTime] = useState<string | null>(null);
   const [availableAppointments, setAvailableAppointments] = useState<
     Appointment[]
   >([]);
@@ -24,20 +28,25 @@ const TempleScheduler: React.FC = () => {
 
   const handleSeeAppointments = () => {
     const queryParams = new URLSearchParams({
-      templeId: selectedTemple || "", //I think this needs to be templeName
-      ordinanceId: selectedOrdinance || "", //I think this needs to be ordinanceName
+      templeId: selectedTemple || "",
+      ordinanceId: selectedOrdinance || "",
       startDate: selectedStartDate || "",
       endDate: selectedEndDate || "",
+      startTime: selectedStartTime || "",
+      endTime: selectedEndTime || "",
     }).toString();
-
+    console.log(
+      `http://localhost:5051/api/Appointment/AllAppointments?${queryParams}`
+    );
     fetch(
-      `http://localhost:5051/api/Appointment/AvailableAppointments?${queryParams}`
+      `http://localhost:5051/api/Appointment/AllAppointments?${queryParams}`
     )
       .then((response) => response.json())
       .then((data) => {
         setAvailableAppointments(data);
       })
       .catch((error) => console.error("Error fetching appointments:", error));
+    console.log(availableAppointments);
   };
 
   const handleTimeSlotClick = (appointment: Appointment) => {
@@ -55,16 +64,25 @@ const TempleScheduler: React.FC = () => {
           selectedOrdinance={selectedOrdinance}
           setSelectedOrdinance={setSelectedOrdinance}
         />
-        <DateSelector
+        <br></br>
+        {/* <DateSelector
           selectedStartDate={selectedStartDate}
           setSelectedStartDate={setSelectedStartDate}
           selectedEndDate={selectedEndDate}
           setSelectedEndDate={setSelectedEndDate}
         />
+        <TimeSelector
+          selectedStartTime={selectedStartTime}
+          setSelectedStartTime={setSelectedStartTime}
+          selectedEndTime={selectedEndTime}
+          setSelectedEndTime={setSelectedEndTime}
+        /> */}
         <button onClick={handleSeeAppointments}>
           See Available Appointments
         </button>
-        <TimeSlotGrid availableAppointments={availableAppointments} />
+        {availableAppointments.length > 0 && (
+          <TimeSlotGrid availableAppointments={availableAppointments} />
+        )}
       </div>
     </div>
   );

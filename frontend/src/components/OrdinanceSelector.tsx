@@ -21,14 +21,18 @@ const OrdinanceSelector: React.FC<OrdinanceSelectorProps> = ({
   selectedOrdinance,
   setSelectedOrdinance,
 }) => {
-  const [ordinances, setOrdinances] = useState<Ordinance[]>(dummyOrdinances);
+  const [ordinances, setOrdinances] = useState<Ordinance[]>([]);
 
   const handleSelect = (selectedOrdinanceId: string) => {
-    setSelectedOrdinance(selectedOrdinanceId);
+    if (selectedOrdinanceId === selectedOrdinance) {
+      setSelectedOrdinance(""); // Deselect if the same ordinance is clicked again
+    } else {
+      setSelectedOrdinance(selectedOrdinanceId);
+    }
   };
 
   useEffect(() => {
-    fetch("http://localhost:5000/getOrdinances")
+    fetch("http://localhost:5051/api/Appointment/GetOrdinances")
       .then((response) => response.json())
       .then((data) => setOrdinances(data))
       .catch((error) => console.error("Error fetching ordinances:", error));
@@ -41,6 +45,7 @@ const OrdinanceSelector: React.FC<OrdinanceSelectorProps> = ({
         {ordinances.map((ordinance) => (
           <button
             key={ordinance.ordinanceId}
+            id={ordinance.ordinanceId}
             className={
               ordinance.ordinanceId === selectedOrdinance
                 ? "selected-item"

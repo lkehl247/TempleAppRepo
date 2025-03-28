@@ -1,6 +1,6 @@
 // @ts-ignore
 import React, { useEffect, useState } from "react";
-import { Appointment } from "../types/Appointment";
+import Appointment from "../types/Appointment";
 
 export const AppointmentList: React.FC = () => {
   const [appointments, setAppointments] = useState<Appointment[]>([]);
@@ -9,7 +9,7 @@ export const AppointmentList: React.FC = () => {
     const fetchUserAppointments = async () => {
       try {
         const response = await fetch(
-          "http://localhost:5051/api/Appointment/AllUserAppointments"
+          "http://localhost:5051/api/Appointment/AllUserAppointments?userName=ryanGosling"
         );
         if (!response.ok) {
           throw new Error("Failed to fetch appointments");

@@ -22,18 +22,20 @@ const TimeSlotGrid: React.FC<TimeSlotGridProps> = ({
   const timeSlots: TimeSlots = {};
 
   availableAppointments.forEach((appointment) => {
-    const appointmentDateTime = new Date(
-      `${appointment.appointmentDate}T${appointment.appointmentTime}`
+    const date = new Date(appointment.appointmentTime).toLocaleDateString(
+      "en-US",
+      {
+        month: "short",
+        day: "numeric",
+      }
     );
-    const date = appointmentDateTime.toLocaleDateString("en-US", {
-      month: "short",
-      day: "numeric",
-    });
-    const time = appointmentDateTime.toLocaleTimeString("en-US", {
-      hour: "numeric",
-      minute: "numeric",
-      hour12: true,
-    });
+    const time = new Date(appointment.appointmentTime).toLocaleTimeString(
+      "en-US",
+      {
+        hour: "numeric",
+        minute: "numeric",
+      }
+    );
 
     if (!timeSlots[date]) {
       timeSlots[date] = [];
