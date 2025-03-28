@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { Appointment } from "../types/Appointment";
 
-function AppointmentList() {
+export const AppointmentList: React.FC = () => {
   const [appointments, setAppointments] = useState<Appointment[]>([]);
 
   useEffect(() => {
@@ -47,6 +47,4 @@ function AppointmentList() {
       </div>
     </section>
   );
-}
-
-export default AppointmentList;
+};
