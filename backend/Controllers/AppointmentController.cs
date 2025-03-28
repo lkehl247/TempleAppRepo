@@ -1,5 +1,6 @@
 using backend.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace backend.Controllers;
 
@@ -16,19 +17,35 @@ public class AppointmentController : ControllerBase
     }
 
     [HttpGet("AllAppointments")]
-    public IActionResult GetAppointments(int pageSize = 10, int pageNum = 1)
+    public IActionResult GetAppointments()
     {
+        // Use eager loading to get related Temple and Ordinance data
         var appointments = _context.Appointments
-            .Skip((pageNum - 1) * pageSize)
-            .Take(pageSize)
+            .Include(a => a.Temple)          // Eagerly load related Temple data
+            .Include(a => a.Ordinance)       // Eagerly load related Ordinance data
+            .Select(a => new
+            {
+                a.AppointmentId,
+                TempleName = a.Temple.TempleName,       // Replace templeId with templeName
+                OrdinanceName = a.Ordinance.OrdinanceName, // Replace ordinanceId with ordinanceName
+                a.UserName,
+                a.UserAccount,
+                AppointmentTime = a.AppointmentTime.ToString("yyyy-MM-dd HH:mm:ss"),
+                a.Confirmed,
+                a.Cancelled,
+                a.Completed,
+                a.Notes
+            })
             .ToList();
 
+        // Total number of appointments (for pagination)
         var totalNumAppointments = _context.Appointments.Count();
 
         return Ok(new
         {
             Appointments = appointments,
-            TotalNumAppointments = totalNumAppointments
         });
     }
+
+    
 }

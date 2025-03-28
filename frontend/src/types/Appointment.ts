@@ -1,13 +1,10 @@
 export default interface Appointment {
   appointmentId: number;
-  templeId: number;
-  temple: number;
-  ordinanceId: number;
-  ordinance: number;
+  templeName: string;
+  ordinanceName: string;
   userName?: string;
   userAccount: string;
-  appointmentDate: Date;
-  appointmentTime: Date;
+  appointmentTime: string | Date; // Allow both string and Date
   confirmed: boolean;
   cancelled: boolean;
   completed: boolean;
