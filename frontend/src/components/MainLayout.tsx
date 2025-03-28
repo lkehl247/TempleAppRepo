@@ -10,7 +10,7 @@ export const MainLayout: React.FC = () => {
   return (
     <div>
       <main>
-        <h1>Welcome, Ryan!</h1>
+        <h1>Welcome Ryan!</h1>
 
         <section>
           <ActionButton
