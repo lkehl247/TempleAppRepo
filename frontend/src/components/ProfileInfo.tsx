@@ -6,8 +6,8 @@ import barcode from "../assets/barcode.png";
 export const ProfileInfo: React.FC = () => {
   return (
     <section>
-      <div className="w-full rounded-xl bg-neutral-200 h-[140px]" />
-      <div className="flex flex-col gap-3">
+      <div />
+      <div>
         <h1>Ryan Gosling</h1>
         <div>
           <img
@@ -16,11 +16,9 @@ export const ProfileInfo: React.FC = () => {
             style={{ width: "400px" }}
           />
         </div>
-        <div className="flex flex-col gap-5">
-          <h2 className="text-2xl leading-6 text-black">Expiration Date</h2>
-          <time className="text-4xl font-bold leading-6 text-black">
-            05/2026
-          </time>
+        <div>
+          <h2>Expiration Date</h2>
+          <time>05/2026</time>
         </div>
         <br />
         <div>
@@ -37,11 +35,9 @@ export const ProfileInfo: React.FC = () => {
           <p>Provo YSA 6th Stake</p>
         </div>
 
-        <div className="flex flex-col gap-1.5 mt-12">
-          <h3 className="text-base leading-6 text-black">Record Number</h3>
-          <p className="text-3xl font-bold leading-6 text-black">
-            001-4368-572B
-          </p>
+        <div>
+          <h3>Record Number</h3>
+          <p>001-4368-572B</p>
         </div>
       </div>
     </section>
