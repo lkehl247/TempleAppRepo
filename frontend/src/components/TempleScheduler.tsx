@@ -24,8 +24,8 @@ const TempleScheduler: React.FC = () => {
 
   const handleSeeAppointments = () => {
     const queryParams = new URLSearchParams({
-      templeId: selectedTemple || "",
-      ordinanceId: selectedOrdinance || "",
+      templeId: selectedTemple || "", //I think this needs to be templeName
+      ordinanceId: selectedOrdinance || "", //I think this needs to be ordinanceName
       startDate: selectedStartDate || "",
       endDate: selectedEndDate || "",
     }).toString();
