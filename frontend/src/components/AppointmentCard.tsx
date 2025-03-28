@@ -13,12 +13,6 @@ export const AppointmentCard: React.FC<AppointmentCardProps> = ({
   arrivalTime,
 }) => {
   return (
-    <article className="appointment-box">
-      <div>
-        <h1>{title}</h1>
-        <p>{date}</p>
-        <p>{arrivalTime}</p>
-      </div>
-    </article>
+
   );
 };

@@ -67,12 +67,17 @@ a:hover {
   justify-content: space-around;
   align-items: center;
   background-color: #2f4f4f;
-  padding: 10px 0;
+  padding: 5px 0;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   position: fixed;
   bottom: 0;
-  width: 100%;
+  width: 100vw;
+  left: 0;
+  gap: 0px;
+  margin-left: 0px;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 .nav-item {
