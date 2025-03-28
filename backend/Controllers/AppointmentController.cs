@@ -62,6 +62,33 @@ public class AppointmentController : ControllerBase
 
             return Ok(userName);
         }
+        
+    [HttpGet("AvailableAppointments")]
+    public IActionResult GetAvailableAppointments()
+    {
+        // Fetch available appointments with related Temple and Ordinance data
+        var availableAppointments = _context.AvailableAppointments
+            .Include(aa => aa.Temple)         // Eagerly load related Temple data
+            .Include(aa => aa.Ordinance)      // Eagerly load related Ordinance data
+            .Select(aa => new
+            {
+                aa.AvailableAppointmentId,
+                TempleName = aa.Temple.TempleName,       // Replace TempleId with TempleName
+                OrdinanceName = aa.Ordinance.OrdinanceName, // Replace OrdinanceId with OrdinanceName
+                aa.Date,
+                aa.Time,
+                aa.AvailableSeats,
+                aa.IsBooked,
+                aa.MaxParticipants
+            })
+            .ToList();
+
+        return Ok(new
+        {
+            AvailableAppointments = availableAppointments,
+        });
+    }
+
 
     }
     
