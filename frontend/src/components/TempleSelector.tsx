@@ -37,6 +37,7 @@ const TempleSelector: React.FC<TempleSelectorProps> = ({
       <div>
         {temples.map((temple) => (
           <button
+            style={{ margin: "8px" }}
             key={temple.templeId}
             id={temple.templeId}
             className={

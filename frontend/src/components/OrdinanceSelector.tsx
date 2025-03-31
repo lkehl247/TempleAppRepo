@@ -44,6 +44,7 @@ const OrdinanceSelector: React.FC<OrdinanceSelectorProps> = ({
       <div>
         {ordinances.map((ordinance) => (
           <button
+            style={{ margin: "8px" }}
             key={ordinance.ordinanceId}
             id={ordinance.ordinanceId}
             className={

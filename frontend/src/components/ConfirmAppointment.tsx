@@ -22,18 +22,57 @@ const ConfirmationPage: React.FC = () => {
   };
 
   return (
-    <div>
-      <h2>Confirm Appointment</h2>
+    <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
+      <h2 className="selected-item">Confirm Appointment</h2>
       {appointment ? (
-        <div>
-          <p>Appointment ID: {id}</p>
-          <p>Time: {time}</p>
-          <p>Date: {date}</p>
-          <button onClick={() => window.history.back()}>Go Back</button>
-          <button onClick={handleConfirm}>Confirm Appointment</button>
+        <div
+          style={{
+            border: "1px solid #ccc",
+            borderRadius: "8px",
+            padding: "20px",
+            maxWidth: "400px",
+            margin: "20px auto",
+            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+          }}
+        >
+          <p style={{ margin: "10px 0", fontSize: "16px" }}>
+            <strong>Appointment ID:</strong> {id}
+          </p>
+          <p style={{ margin: "10px 0", fontSize: "16px" }}>
+            <strong>Time:</strong> {time}
+          </p>
+          <p style={{ margin: "10px 0", fontSize: "16px" }}>
+            <strong>Date:</strong> {date}
+          </p>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              marginTop: "20px",
+            }}
+          >
+            <button
+              onClick={() => window.history.back()}
+              style={{
+                padding: "10px 20px",
+                backgroundColor: "white",
+                color: "black",
+                border: "1px solid black",
+                borderRadius: "4px",
+                cursor: "pointer",
+              }}
+            >
+              Go Back
+            </button>
+            <button onClick={handleConfirm} className="selected-item">
+              Confirm Appointment
+            </button>
+          </div>
         </div>
       ) : (
-        <p>No appointment selected</p>
+        <p style={{ textAlign: "center", color: "#999" }}>
+          No appointment selected
+        </p>
       )}
     </div>
   );

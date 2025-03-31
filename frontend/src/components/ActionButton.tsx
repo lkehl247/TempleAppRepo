@@ -9,5 +9,9 @@ export const ActionButton: React.FC<ActionButtonProps> = ({
   text,
   onClick,
 }) => {
-  return <button onClick={onClick}>{text}</button>;
+  return (
+    <button onClick={onClick} style={{ margin: "8px" }}>
+      {text}
+    </button>
+  );
 };

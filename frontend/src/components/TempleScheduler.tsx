@@ -77,9 +77,13 @@ const TempleScheduler: React.FC = () => {
           selectedEndTime={selectedEndTime}
           setSelectedEndTime={setSelectedEndTime}
         /> */}
-        <button onClick={handleSeeAppointments}>
-          See Available Appointments
-        </button>
+        <div>
+          {" "}
+          <button onClick={handleSeeAppointments}>
+            See Available Appointments
+          </button>
+        </div>
+        <br></br>
         {availableAppointments.length > 0 && (
           <TimeSlotGrid availableAppointments={availableAppointments} />
         )}

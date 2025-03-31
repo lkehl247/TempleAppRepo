@@ -15,7 +15,7 @@ import LoginForm from "../components/loginForm";
 const CelestialScheduleLogin: React.FC = () => {
   return (
     <>
-      <h1>Celestial Schedule</h1>
+      <h1>Celestial Temple Scheduler</h1>
 
       <img
         src="https://cdn.builder.io/api/v1/image/assets/TEMP/8e6628c480a4ceb7d81306cf7bcfb1a88873461f"
