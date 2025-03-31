@@ -12,6 +12,6 @@ const App: React.FC = () => {
       <NavAppBar />
     </>
   );
-}
+};
 
 export default App;

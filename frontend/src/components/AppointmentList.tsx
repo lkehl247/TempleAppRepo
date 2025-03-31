@@ -26,6 +26,24 @@ export const AppointmentList: React.FC = () => {
 
     fetchUserAppointments();
   }, []);
+  // Dummy data for testing
+  useEffect(() => {
+    const dummyAppointments: Appointment[] = [
+      {
+        appointmentId: "1",
+        templeName: "Orem Temple",
+        appointmentTime: new Date("2024-02-24T10:00:00").toISOString(),
+        ordinanceName: "Baptism",
+      },
+      {
+        appointmentId: "2",
+        templeName: "Provo City Center Temple",
+        appointmentTime: new Date("2024-02-26T16:00:00").toISOString(),
+        ordinanceName: "Endowment",
+      },
+    ];
+    setAppointments(dummyAppointments);
+  }, []);
 
   return (
     <section>
@@ -35,7 +53,12 @@ export const AppointmentList: React.FC = () => {
           appointments.map((a) => (
             <article key={a.appointmentId} className="appointment-box">
               <div>
-                <h1>{a.templeName}</h1>
+                <p>
+                  <strong>{a.templeName}</strong>
+                </p>
+                <p>
+                  <strong>{a.ordinanceName}</strong>
+                </p>
                 <p>{new Date(a.appointmentTime).toLocaleDateString()}</p>
                 <p>{new Date(a.appointmentTime).toLocaleTimeString()}</p>
               </div>

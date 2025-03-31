@@ -13,7 +13,15 @@ export const TempleDashboard: React.FC = () => {
           <h1 className="mb-9 text-3xl font-bold text-black">
             My Temple Stats
           </h1>
-          <div className="stat-box-container">
+          <div
+            className="stat-box-container"
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "20px",
+              alignItems: "center",
+            }}
+          >
             <StatCard value="5" label="Total Appointments" />
             <StatCard value="3" label="People Added to Appointments" />
             <TimeSeriesTable />
